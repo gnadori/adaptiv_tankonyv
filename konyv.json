@@ -4,7 +4,7 @@
     "Global_Organizers": {
       "Pre_Constructed_Map": {
         "content": "Visual diagram linking: Sejt -> Prokarióta / Eukarióta -> Sejtalkotók.[1]",
-        "target_profiles":,
+        "target_profiles": [],
         "placement": "Pre-reading"
       },
       "Generative_Map_Task": {
@@ -13,7 +13,8 @@
         "placement": "Post-reading"
       }
     },
-    "Content_Blocks":",
+    "Content_Blocks": [
+      {
         "Text_Variants": {
           "High_Cohesion_Chunk": {
             "content": "A sejt egyszerre igényel elhatárolódást a környezetétől és folyamatos kapcsolatot azzal. Ezt a feladatot a sejtmembrán látja el, amely egy kettős lipidrétegből épül fel. Fehérjék és szénhidrátok is találhatók benne.[1]",
@@ -23,13 +24,13 @@
           "Expansive_Argumentative": {
             "content": "A sejt egyszerre igényel elhatárolódást a környezetétől és folyamatos kapcsolatot azzal. Ezt a kettős feladatot a sejtmembrán látja el. Szerkezete egy kettős lipidrétegből épül fel, amelyben a lipidmolekulák feji része vízkedvelő (hidrofil), míg a befelé forduló 'farkincák' vízlepergetőek (hidrofóbok). A membránba ágyazott fehérjék felelősek az anyagok szállításáért és az információk fogadásáért, míg a külső felszínen lévő szénhidrátláncok adják a sejt egyediségét.[1]",
             "max_sentences": 5,
-            "target_profiles":
+            "target_profiles": []
           }
         },
         "Metaphors_and_Examples": {
           "Concrete_Metaphor": {
             "content": "A határőrség: A sejtmembrán.[1]",
-            "target_profiles":
+            "target_profiles": []
           }
         },
         "Embedded_Assessments": {
@@ -53,7 +54,7 @@
           "Expansive_Argumentative": {
             "content": "Ezek a sejtalkotók különlegesek, mert két membrán határolja őket, és saját DNS-sel rendelkeznek (valaha önálló baktériumok voltak - endoszimbiózis elmélet). A mitokondrium minden eukarióta sejtben (a növényekben is!) megtalálható. Itt zajlik a sejtlégzés során a szőlőcukor lebontása oxigén segítségével, amiből a sejt számára felhasználható energia (ATP) keletkezik. A színtestek (például zöld színtest) csak a növényi sejtekben fordulnak elő. Belső membránrendszerükben (gránumok) található a klorofill, amely megköti a fényenergiát a fotoszintézishez.[1]",
             "max_sentences": 6,
-            "target_profiles":
+            "target_profiles": []
           }
         },
         "Refutational_Element": {
@@ -65,7 +66,7 @@
           "Application_Question": {
             "question": "Ha egy sejtnek nagyon sok energiára van szüksége (például egy szívizomsejtnek), melyik sejtalkotóból találnánk benne az átlagosnál sokkal többet? Miért? [1]",
             "type": "elaborative_interrogation",
-            "target_profiles":
+            "target_profiles": []
           }
         }
       }
@@ -84,7 +85,7 @@
     "Section_Summary": {
       "Provided_Summary": {
         "content": "A sejt egy rendkívül szervezett egység, ahol minden funkciónak megvan a saját helyszíne (kompartmentáció). A sejtmembrán szabályozza a forgalmat, a sejtmag tárolja a tervrajzokat (DNS), a DER és a Golgi gyártja és szállítja a termékeket (fehérjék), a mitokondrium pedig biztosítja a működéshez szükséges energiát (ATP).[1]",
-        "target_profiles":
+        "target_profiles": []
       }
     }
   }

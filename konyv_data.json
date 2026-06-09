@@ -1,0 +1,117 @@
+{
+  "1_Modul": {
+    "Cim": "1. lecke: A sejt szerveződése és sejtalkotói [1]",
+    "Globalis_Szervezok": {
+      "Elore_Elkeszitett_Fogalomterkep": {
+        "tartalom": "Vizuális ábra, amely összeköti a következőket: Sejt -> Prokarióta / Eukarióta -> Sejtalkotók.[1]",
+        "elhelyezes": "Olvasas_elott",
+        "celcsoport_profilok": []
+      },
+      "Generalando_Terkep_Feladat": {
+        "tartalom": "Készíts egy fogalomtérképet a következő kulcsfogalmak felhasználásával: prokarióta, eukarióta, sejtmembrán, sejtváz, sejtmag, endoplazmatikus retikulum, Golgi-készülék, lizoszóma, mitokondrium, színtest, ATP.[1]",
+        "elhelyezes": "Olvasas_utan",
+        "celcsoport_profilok": []
+      }
+    },
+    "Tartalmi_Blokkok": [
+      {
+        "Szoveg_Valtozatok": {
+          "Magas_Kohezioju_Tomb": {
+            "tartalom": "A sejtmembrán egy kettős lipidrétegből épül fel.[1] A membránba ágyazott fehérjék felelősek az anyagok szállításáért és az információk fogadásáért.[1] A külső felszínen lévő szénhidrátláncok alapján az immunrendszerünk ismeri fel a saját sejtjeinket.[1]",
+            "max_mondatszam": 3,
+            "celcsoport_profilok": ["Kezdo", "Impulziv_Olvaso"]
+          },
+          "Kibovitett_Ervelo_Szoveg": {
+            "tartalom": "A sejt egyszerre igényel elhatárolódást a környezetétől és folyamatos kapcsolatot azzal.[1] Ezt a kettős feladatot a sejtmembrán látja el, melynek szerkezete egy kettős lipidrétegből épül fel.[1] A lipidmolekulák feji része vízkedvelő (hidrofil), míg a befelé forduló 'farkincák' vízlepergetőek (hidrofóbok).[1] A membránba ágyazott fehérjék felelősek az anyagok szállításáért (transzport) és a külvilágból érkező információk fogadásáért (receptorok), míg a külső felszínen lévő szénhidrátláncok adják a sejt egyediségét.[1]",
+            "max_mondatszam": 5,
+            "celcsoport_profilok": []
+          }
+        },
+        "Vizualis_Elemek": {
+          "Jelolt_Abra": {
+            "fajlnev": "image1.png",
+            "leiras": "A sejtmembrán kettős lipidrétegének vizuálisan támogatott ábrája, a szöveghez igazodó kiemelt nyilakkal és színkódokkal (hidrofil fej, hidrofób farok).",
+            "celcsoport_profilok": []
+          },
+          "Nyers_Adat_Abra": {
+            "fajlnev": "image2.png",
+            "leiras": "Jelöletlen, nagy felbontású elektronmikroszkópos felvétel a sejtmembránról.[1]",
+            "celcsoport_profilok": []
+          }
+        },
+        "Metaforak_es_Peldak": {
+          "Konkret_Metafora": {
+            "tartalom": "A határőrség: A sejtmembrán pontosan úgy dönti el, mit enged be a sejtbe, mint egy szigorú határátkelő.[1]",
+            "celcsoport_profilok": ["Kezdo", "Impulziv_Olvaso"]
+          }
+        },
+        "Beagyazott_Ertekelesek": {
+          "Alacsony_Tetel_Kerdes": {
+            "kerdes": "Melyek a sejtmembrán fő alkotóelemei, és mi a feladatuk? [1]",
+            "tipus": "kotelezo_megallitas",
+            "celcsoport_profilok": ["Kezdo", "Impulziv_Olvaso"],
+            "visszacsatolasi_kor": "Helytelen válasz esetén a rendszer visszairányít a Magas_Kohezioju_Tomb olvasásához."
+          }
+        }
+      },
+      {
+        "Blokk_Azonosito": "Blokk_5_Energiatermelok",
+        "Tema": "5. Az energiatermelők: Mitokondrium és színtestek [1]",
+        "Szoveg_Valtozatok": {
+          "Magas_Kohezioju_Tomb": {
+            "tartalom": "A mitokondrium és a színtest különlegesek, mert két membrán határolja őket, és saját DNS-sel rendelkeznek.[1] A mitokondriumban zajlik a sejtlégzés, amiből a sejt számára energia (ATP) keletkezik.[1] A színtestek csak a növényi sejtekben fordulnak elő, és a fotoszintézisért felelősek.[1]",
+            "max_mondatszam": 3,
+            "celcsoport_profilok": ["Kezdo", "Impulziv_Olvaso"]
+          },
+          "Kibovitett_Ervelo_Szoveg": {
+            "tartalom": "Ezek a sejtalkotók különlegesek, mert két membrán határolja őket, és saját DNS-sel rendelkeznek, mivel az endoszimbiózis elmélet szerint valaha önálló baktériumok voltak.[1] A mitokondrium minden eukarióta sejtben (a növényekben is!) megtalálható.[1] Itt zajlik a sejtlégzés során a szőlőcukor lebontása oxigén segítségével, amiből a sejt számára felhasználható energia (ATP) keletkezik.[1] A zöld színtestek csak a növényi sejtekben fordulnak elő, és belső membránrendszerükben található a klorofill, amely megköti a fényenergiát a fotoszintézishez.[1]",
+            "max_mondatszam": 5,
+            "celcsoport_profilok": []
+          }
+        },
+        "Cafolo_Elem_Konceptualis_Valtas": {
+          "Tevhit": "Igaz-e az állítás: A növényi sejtekben nincs mitokondrium, mert ott a színtestek termelnek energiát? [1]",
+          "Korrekcio": "Ez egy gyakori tévhit. A mitokondrium minden eukarióta sejtben, így a növényekben is megtalálható, hiszen ők is sejtlégzést végeznek! [1]",
+          "celcsoport_profilok": ["Kezdo", "Impulziv_Olvaso"]
+        },
+        "Vizualis_Elemek": {
+          "Jelolt_Abra": {
+            "fajlnev": "image3.png",
+            "leiras": "A mitokondrium és a színtest felépítése, külön kiemelve a dupla membránt és az önálló DNS-t.",
+            "celcsoport_profilok": ["Mindenki"]
+          }
+        },
+        "Beagyazott_Ertekelesek": {
+          "Alkalmazas_Kerdes": {
+            "kerdes": "Ha egy sejtnek nagyon sok energiára van szüksége (például egy szívizomsejtnek), melyik sejtalkotóból találnánk benne az átlagosnál sokkal többet? Miért? [1]",
+            "tipus": "kifejto_alkalmazas",
+            "celcsoport_profilok": []
+          }
+        }
+      }
+    ],
+    "Periferikus_Modulok_Erdekessegek": {
+      "Seductive_Detail_1": {
+        "Cim": "A láthatatlan világ felfedezése - Az elektronmikroszkóp [1]",
+        "Tartalom": "Érdekes tény a mai diákok számára, hogy ez a világformáló eszköz eredetileg egyfajta egyetemi diákprojektként indult.[1] Ernst Ruska ugyanis még csak 24 éves PhD-hallgató volt a Berlini Műszaki Egyetemen, amikor tanárával, Max Knoll-lal közösen, szinte házi körülmények között megépítették az első prototípust.[1]",
+        "Vizualis_Elemek": {
+          "Dekorativ_Kep": {
+            "fajlnev": "image4.png",
+            "leiras": "Történelmi fotó Ernst Ruskáról és a korai mikroszkóp prototípusáról."
+          }
+        },
+        "Hozzaferesi_Logika": {
+          "Kezdo_Impulziv_Olvaso": "Teljesen elrejtve, a kognitív túlterhelés és a figyelem elterelődésének megakadályozása érdekében.",
+          "Halado_Elemzo_Tanulo": "A szakasz végén kattintható, opcionális 'Mélyebb betekintés' gombként jelenik meg.",
+          "Reflektiv_Olvaso": "Beépítve a folyó szövegbe mint kiegészítő olvasmány."
+        }
+      }
+    },
+    "Szakasz_Osszefoglalo": {
+      "Biztositott_Osszefoglalo": {
+        "tartalom": "A sejt egy rendkívül szervezett egység, ahol minden funkciónak megvan a saját helyszíne.[1] A sejtmembrán szabályozza a forgalmat, a sejtmag tárolja a tervrajzokat (DNS), a DER és a Golgi gyártja és szállítja a termékeket (fehérjék), a mitokondrium pedig biztosítja a működéshez szükséges energiát (ATP).[1]",
+        "celcsoport_profilok": []
+      }
+    }
+  }
+}
