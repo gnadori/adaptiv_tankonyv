@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adaptív Tankönyv - Dinamikus Profilok</title>
+    <!-- Include Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <style>
-        /* Alapértelmezett beállítások */
         :root {
             --primary-color: #3498db;
             --bg-color: #f8f9fa;
@@ -33,18 +34,22 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
         }
         .profile-bar span {
             color: white;
             font-weight: bold;
             margin-right: 15px;
+            align-self: center;
         }
         .profile-btn {
             background-color: transparent;
             color: white;
             border: 2px solid #3498db;
             padding: 8px 15px;
-            margin: 0 5px;
             border-radius: 20px;
             cursor: pointer;
             font-weight: bold;
@@ -72,33 +77,24 @@
             padding-bottom: 10px;
             margin-bottom: 30px;
         }
-        h2 {
-            color: #2980b9;
-        }
-
-        .module-container {
-            background: #fff;
-            padding: 25px;
+        
+        .mermaid {
+            background: white;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            text-align: center;
         }
 
         .content-block {
             margin-top: 20px;
             padding: 20px;
-            background: #eaf2f8;
+            background: #fff;
             border-left: 5px solid var(--primary-color);
             border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             transition: transform 0.2s, filter 0.3s;
-        }
-
-        .text-variant {
-            background-color: white;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            border: 1px solid #dcdde1;
         }
 
         .question-box {
@@ -111,48 +107,45 @@
             color: #d35400;
         }
         
-        .seductive-detail {
+        .tevhiteloszlatas {
             background-color: #f9ebea;
             padding: 15px;
             border-left: 5px solid #e74c3c;
             border-radius: 5px;
             margin-top: 15px;
-            font-size: 0.9em;
-        }
-        .seductive-detail summary {
-            font-weight: bold;
-            cursor: pointer;
             color: #c0392b;
         }
 
-        /* --------------------------------------------------- */
-        /* PROFIL SPECIFIKUS CSS STÍLUSOK (tablazat.pdf alapján) */
-        /* --------------------------------------------------- */
-
-        /* 1. Kezdő (Novice) */
-        body.profile-Kezdo {
-            --container-width: 650px; /* Szűkebb az olvasáskönnyítésért */
-            font-size: 1.15em;
-            line-height: 1.8;
-        }
-        body.profile-Kezdo .content-block {
-            margin-bottom: 40px; /* Nagyobb térközök */
-        }
-        body.profile-Kezdo b, body.profile-Kezdo strong {
-            color: #2980b9; /* Kulcsszavak kiemelése vizuálisan */
-        }
-
-        /* 2. Impulzív (Impulsive / Skimming Reader) */
-        body.profile-Impulziv_Olvaso {
-            --primary-color: #e74c3c; /* Figyelemfelkeltő szín */
-        }
-        body.profile-Impulziv_Olvaso .question-box {
-            background-color: #fdf2e9;
-            border: 2px solid #e67e22;
-            font-size: 1.1em;
+        .elozetes_osszefoglalo {
+            background-color: #eaf2f8;
             padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-style: italic;
         }
-        /* Elhalványított (blur) tartalom, ami kattintásra oldódik fel */
+
+        .deep_dive {
+            background-color: #f4f6f7;
+            padding: 15px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .deep_dive summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+
+        .adat, .feladat, .tortenet, .extra_reszlet {
+            background-color: #fef9e7;
+            padding: 15px;
+            border-left: 5px solid #f1c40f;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        /* Kapuk / Gated Content (Impulsive) */
         .gated-content {
             filter: blur(5px);
             user-select: none;
@@ -166,8 +159,8 @@
             opacity: 1;
         }
         .unlock-btn {
-            display: block;
-            margin: 10px 0;
+            display: inline-block;
+            margin: 15px 0;
             padding: 10px 20px;
             background-color: #e67e22;
             color: white;
@@ -178,55 +171,179 @@
         }
         .unlock-btn:hover { background-color: #d35400; }
 
-        /* 3. Haladó / Elemző (Expert / Analytical) */
-        body.profile-Halado_Elemzo_Tanulo {
-            --container-width: 950px; /* Szélesebb, információsűrűbb */
+        /* ========================================================= */
+        /* PROFIL SPECIFIKUS CSS (MIND A 6 TANULÓTÍPUSNAK EGYEDI)    */
+        /* ========================================================= */
+
+        /* 1. Novice / Low Structure Builder */
+        body.profile-Novice {
+            --container-width: 650px;
+            --primary-color: #27ae60;
+            font-size: 1.25em; /* Nagy betűk */
+            line-height: 1.8;
+            background-color: #f1f8f3;
+        }
+        body.profile-Novice .content-block {
+            margin-bottom: 35px; /* Laza margók */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 8px solid var(--primary-color);
+        }
+        body.profile-Novice b, body.profile-Novice strong {
+            color: #27ae60;
+            background-color: rgba(39, 174, 96, 0.1);
+            padding: 0 4px;
+            border-radius: 3px;
+        }
+
+        /* 2. Expert / High Structure Builder */
+        body.profile-Expert {
+            --container-width: 1000px; /* Széles, információsűrű moduláris grid */
+            --primary-color: #8e44ad;
             font-size: 0.95em;
         }
-        body.profile-Halado_Elemzo_Tanulo .module-container {
+        body.profile-Expert #content-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
-        body.profile-Halado_Elemzo_Tanulo .content-block {
+        body.profile-Expert .content-block {
             margin-top: 0;
+            border-left: none;
+            border-top: 4px solid var(--primary-color);
         }
 
-        /* 4. Reflektív (Reflective Reader) */
-        body.profile-Reflektiv_Olvaso {
+        /* 3. Field-Dependent / Global Learner */
+        body.profile-Field_Dep {
+            --container-width: 800px;
+            --primary-color: #f39c12;
+            background-color: #fdfae6;
+        }
+        body.profile-Field_Dep .content-block {
+            /* Erősen strukturált hierarchia */
+            border: 2px solid var(--primary-color);
+            border-left: 10px solid var(--primary-color);
+        }
+        body.profile-Field_Dep h1 {
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-bottom: none;
+        }
+        body.profile-Field_Dep .elozetes_osszefoglalo {
+            background-color: #fff3e0;
+            border: 2px dashed #f39c12;
+            font-size: 1.1em;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        /* 4. Field-Independent / Analytical Learner */
+        body.profile-Field_Indep {
+            --container-width: 850px;
+            --primary-color: #2c3e50;
+            background-color: #ecf0f1;
+        }
+        body.profile-Field_Indep .analytic-section {
+            background: white;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #bdc3c7;
+        }
+        body.profile-Field_Indep summary {
+            padding: 15px;
+            background-color: #34495e;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        body.profile-Field_Indep .analytic-section p {
+            padding: 15px;
+            margin: 0;
+        }
+        body.profile-Field_Indep .adat {
+            border-left: none;
+            border-top: 3px solid #2980b9;
+            background: #eaf2f8;
+            font-family: monospace;
+            font-size: 1.1em;
+        }
+
+        /* 5. Impulsive / Skimming Reader */
+        body.profile-Impulsive {
+            --container-width: 700px;
+            --primary-color: #e74c3c;
+            background-color: #fceceb;
+        }
+        body.profile-Impulsive .content-block {
+            border-left: none;
+            border-right: 5px solid var(--primary-color); /* Eltérő vizuális kapuk */
+            border-radius: 0;
+        }
+        body.profile-Impulsive .tevhiteloszlatas {
+            font-size: 1.2em;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+        }
+
+        /* 6. Reflective Reader */
+        body.profile-Reflective {
             --container-width: 700px;
             --font-family: 'Georgia', 'Times New Roman', serif;
-            --bg-color: #fdfcf8; /* Papírszerű háttér */
-            color: #222;
+            --bg-color: #fdfcf8; /* Papírszerű */
+            color: #333;
         }
-        body.profile-Reflektiv_Olvaso h1, 
-        body.profile-Reflektiv_Olvaso h2 {
+        body.profile-Reflective h1, 
+        body.profile-Reflective h2 {
             color: #222;
             border-bottom: 1px solid #ccc;
+            text-align: center;
+            font-weight: normal;
         }
-        body.profile-Reflektiv_Olvaso .content-block {
+        body.profile-Reflective .content-block {
             background: transparent;
             border-left: none;
             border-top: 1px solid #eaeaea;
             border-radius: 0;
+            box-shadow: none;
+            padding: 10px 0;
         }
-        body.profile-Reflektiv_Olvaso .text-variant {
-            border: none;
-            padding: 0;
+        body.profile-Reflective p {
+            text-indent: 2em; /* Könyvszerű behúzás */
+            line-height: 1.9;
+        }
+        body.profile-Reflective .tortenet {
             background: transparent;
+            border: none;
+            border-left: 4px solid #ccc;
+            font-style: italic;
         }
-        
+        body.profile-Reflective .nyilt_kerdes {
+            background: #fff9e6;
+            border: 1px solid #e1d8b9;
+            padding: 20px;
+            margin: 30px 0;
+            text-indent: 0;
+            text-align: center;
+        }
     </style>
 </head>
-<body class="profile-Kezdo">
+<body class="profile-Novice">
 
     <!-- Profilválasztó sáv -->
-    <div class="profile-bar">
+    <div class="profile-bar" id="profile-bar">
         <span>Válaszd ki a tanulói profilod:</span>
-        <button class="profile-btn active" onclick="setProfile('Kezdo')">Kezdő</button>
-        <button class="profile-btn" onclick="setProfile('Impulziv_Olvaso')">Impulzív</button>
-        <button class="profile-btn" onclick="setProfile('Halado_Elemzo_Tanulo')">Haladó</button>
-        <button class="profile-btn" onclick="setProfile('Reflektiv_Olvaso')">Reflektív</button>
+        <!-- Buttons will be generated dynamically -->
     </div>
 
     <!-- Ide töltődik be a dinamikus tartalom -->
@@ -235,201 +352,153 @@
     </div>
 
     <script>
+        mermaid.initialize({ startOnLoad: false });
         let konyvData = null;
-        let currentProfile = 'Kezdo';
+        let currentProfile = null;
+        let profileKeys = [];
+        
+        // Map profil keys to CSS classes
+        const profileClasses = {
+            "Novice / Low Structure Builder": "Novice",
+            "Expert / High Structure Builder": "Expert",
+            "Field-Dependent / Global Learner": "Field_Dep",
+            "Field-Independent / Analytical Learner": "Field_Indep",
+            "Impulsive / Skimming Reader": "Impulsive",
+            "Reflective Reader": "Reflective"
+        };
 
-        // Profil váltása
+        function initProfiles() {
+            profileKeys = Object.keys(konyvData.tanulotipusok);
+            currentProfile = profileKeys[0];
+            
+            const bar = document.getElementById('profile-bar');
+            profileKeys.forEach(p => {
+                const btn = document.createElement('button');
+                btn.className = 'profile-btn';
+                if (p === currentProfile) btn.classList.add('active');
+                btn.innerText = p.split(' / ')[0]; // Rövidebb név
+                btn.onclick = () => setProfile(p);
+                bar.appendChild(btn);
+            });
+        }
+
         function setProfile(profile) {
             currentProfile = profile;
             
-            // Aktív gomb stílusának frissítése
-            document.querySelectorAll('.profile-btn').forEach(btn => {
+            // Aktív gomb frissítése
+            const btns = document.querySelectorAll('.profile-btn');
+            btns.forEach((btn, index) => {
                 btn.classList.remove('active');
-                if(btn.getAttribute('onclick').includes(profile)) {
+                if(profileKeys[index] === profile) {
                     btn.classList.add('active');
                 }
             });
 
-            // CSS osztály cseréje a body-n
-            document.body.className = `profile-${profile}`;
-
-            // Tartalom újrarajzolása
-            if(konyvData) {
-                renderContent();
-            }
+            // CSS osztály frissítése
+            document.body.className = `profile-${profileClasses[profile]}`;
+            renderContent();
         }
 
-        // Zár (blur) feloldása impulzív profilnál
-        function unlockNext(id) {
-            const el = document.getElementById(id);
+        function unlockNext(index) {
+            const el = document.getElementById(`content-item-${index}`);
             if(el) {
                 el.classList.add('unlocked');
             }
-            event.target.style.display = 'none'; // Gomb eltüntetése
+            event.target.style.display = 'none';
         }
 
-        // Tartalom generálása a kiválasztott profil alapján
-        function renderContent() {
+        function parseMarkdown(text) {
+            let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            html = html.replace(/\n/g, '<br>');
+            return html;
+        }
+
+        async function renderContent() {
             const app = document.getElementById('app-container');
-            const modul = konyvData['1_Modul'];
+            let html = `<h1>${konyvData.fejezet}</h1>`;
             
-            let html = `<h1>${modul.Cim}</h1>`;
-            
-            // Globális szervezők (Kezdőknél és Haladóknál eltérhet)
-            if (modul.Globalis_Szervezok) {
-                if (currentProfile === 'Kezdo' || currentProfile === 'Reflektiv_Olvaso') {
-                    if (modul.Globalis_Szervezok.Elore_Elkeszitett_Fogalomterkep) {
-                        html += `<div><strong>Előzetes fogalomtérkép:</strong> ${modul.Globalis_Szervezok.Elore_Elkeszitett_Fogalomterkep.tartalom}</div>`;
-                    }
-                } else if (currentProfile === 'Halado_Elemzo_Tanulo') {
-                    if (modul.Globalis_Szervezok.Generalando_Terkep_Feladat) {
-                        html += `<div><strong>Feladat olvasás előtt:</strong> ${modul.Globalis_Szervezok.Generalando_Terkep_Feladat.tartalom}</div>`;
-                    }
-                }
+            if (konyvData.gondolatterkep_mermaid) {
+                html += `<h2>Gondolattérkép</h2>`;
+                html += `<div class="mermaid">${konyvData.gondolatterkep_mermaid}</div>`;
             }
 
-            html += `<div class="module-container">`;
-            
-            // Tartalmi blokkok
-            modul.Tartalmi_Blokkok.forEach((blokk, index) => {
-                let title = blokk.Tema ? `<h2>${blokk.Tema}</h2>` : `<h2>${index + 1}. Tartalmi rész</h2>`;
+            const profilData = konyvData.tanulotipusok[currentProfile];
+            html += `<p style="color: #7f8c8d; font-style: italic; margin-bottom: 30px;">Profil jellemzők: ${profilData.jellemzok}</p>`;
+
+            const isImpulsive = profileClasses[currentProfile] === 'Impulsive';
+            const isExpert = profileClasses[currentProfile] === 'Expert';
+            const isFieldIndep = profileClasses[currentProfile] === 'Field_Indep';
+
+            // Külön wrapper, ha grid kell (Expert)
+            if (isExpert) {
+                html += `<div id="content-wrapper">`;
+            }
+
+            profilData.tartalom.forEach((item, index) => {
+                const gateClass = (isImpulsive && index > 1) ? 'gated-content' : '';
+                const blockId = `content-item-${index}`;
                 
-                // Kapusító logika Impulzív profilhoz
-                let gateClass = (currentProfile === 'Impulziv_Olvaso' && index > 0) ? 'gated-content' : '';
-                let blockId = `block-${index}`;
-
-                html += `<div class="content-block ${gateClass}" id="${blockId}">`;
-                html += title;
-
-                // Képek / Vizuális elemek
-                if (blokk.Vizualis_Elemek) {
-                    const viz = blokk.Vizualis_Elemek;
-                    let imgToShow = null;
-
-                    // Kezdő, Impulzív, Reflektív -> Jelölt ábra (magyarázós)
-                    if ((currentProfile === 'Kezdo' || currentProfile === 'Impulziv_Olvaso' || currentProfile === 'Reflektiv_Olvaso') && viz.Jelolt_Abra) {
-                        imgToShow = viz.Jelolt_Abra;
-                    }
-                    // Haladó -> Nyers adat / összetett ábra
-                    else if (currentProfile === 'Halado_Elemzo_Tanulo' && viz.Nyers_Adat_Abra) {
-                        imgToShow = viz.Nyers_Adat_Abra;
-                    }
-                    // Fallback
-                    else if (viz.Jelolt_Abra) {
-                        imgToShow = viz.Jelolt_Abra;
-                    } else if (viz.Nyers_Adat_Abra) {
-                        imgToShow = viz.Nyers_Adat_Abra;
-                    }
-
-                    if (imgToShow) {
-                        html += `<div style="text-align:center; margin: 15px 0;">`;
-                        html += `<img src="${imgToShow.fajlnev}" alt="${imgToShow.leiras}" style="max-width:100%; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" />`;
-                        html += `<p style="font-size:0.85em; color:#7f8c8d; font-style:italic;">${imgToShow.leiras}</p>`;
-                        html += `</div>`;
-                    }
-                }
+                let innerHtml = '';
                 
-                // Szövegváltozat kiválasztása
-                let textContent = '';
-                if (blokk.Szoveg_Valtozatok) {
-                    const magas = blokk.Szoveg_Valtozatok.Magas_Kohezioju_Tomb;
-                    const bovitett = blokk.Szoveg_Valtozatok.Kibovitett_Ervelo_Szoveg;
-                    
-                    // Alapértelmezett a bővített, kivéve ha a kezdő/impulzív szerepel a magasban
-                    if (magas && magas.celcsoport_profilok && magas.celcsoport_profilok.includes(currentProfile)) {
-                        textContent = magas.tartalom;
-                    } else if (bovitett) {
-                        textContent = bovitett.tartalom;
-                    } else if (magas) {
-                        textContent = magas.tartalom;
+                // Field-Independent esetén lenyíló fülként jelenítjük meg a sima szövegeket és adatokat
+                if (isFieldIndep && (item.tipus === 'szoveg' || item.tipus === 'adat')) {
+                    innerHtml = `<details class="analytic-section" id="${blockId}">
+                                    <summary>Szakasz ${index + 1}. - Mutasd</summary>
+                                    <p class="${item.tipus}">${parseMarkdown(item.szoveg)}</p>
+                                 </details>`;
+                } 
+                else if (item.tipus === 'szoveg') {
+                    innerHtml = `<div class="content-block ${gateClass}" id="${blockId}"><p>${parseMarkdown(item.szoveg)}</p></div>`;
+                } 
+                else if (item.tipus === 'kerdes' || item.tipus === 'nyilt_kerdes' || item.tipus === 'kotelezo_kerdes') {
+                    innerHtml = `<div class="question-box ${item.tipus} ${gateClass}" id="${blockId}">Kérdés: ${parseMarkdown(item.szoveg)}</div>`;
+                    if (isImpulsive && index < profilData.tartalom.length - 1) {
+                        innerHtml += `<button class="unlock-btn" onclick="unlockNext(${index + 1})">Megválaszoltam, tovább!</button>`;
                     }
-
-                    // Kulcsszavak kiemelése Kezdő profilnál (egyszerű vastagítás)
-                    if(currentProfile === 'Kezdo') {
-                        textContent = textContent.replace(/sejtmembrán/g, '<b>sejtmembrán</b>');
-                        textContent = textContent.replace(/mitokondrium/g, '<b>mitokondrium</b>');
-                        textContent = textContent.replace(/színtest/g, '<b>színtest</b>');
-                    }
-
-                    html += `<div class="text-variant"><p>${textContent}</p></div>`;
-                }
-
-                // Metaforák (csak kezdők/impulzívak)
-                if (blokk.Metaforak_es_Peldak && (currentProfile === 'Kezdo' || currentProfile === 'Impulziv_Olvaso')) {
-                    if (blokk.Metaforak_es_Peldak.Konkret_Metafora) {
-                        html += `<p><i>Példa: ${blokk.Metaforak_es_Peldak.Konkret_Metafora.tartalom}</i></p>`;
-                    }
-                }
-
-                // Értékelések / Kérdések
-                if (blokk.Beagyazott_Ertekelesek) {
-                    const keys = Object.keys(blokk.Beagyazott_Ertekelesek);
-                    if(keys.length > 0) {
-                        const evalData = blokk.Beagyazott_Ertekelesek[keys[0]];
-                        
-                        // Csak a megfelelő profiloknak mutatjuk a kérdést
-                        let showQuestion = true;
-                        if(evalData.celcsoport_profilok && evalData.celcsoport_profilok.length > 0) {
-                            if(!evalData.celcsoport_profilok.includes(currentProfile)) {
-                                showQuestion = false;
-                            }
-                        }
-
-                        if(showQuestion) {
-                            html += `<div class="question-box">Kérdés: ${evalData.kerdes}</div>`;
-                            // Ha Impulzív és van még következő blokk, teszünk ide egy "tovább" gombot
-                            if (currentProfile === 'Impulziv_Olvaso' && index < modul.Tartalmi_Blokkok.length - 1) {
-                                html += `<button class="unlock-btn" onclick="unlockNext('block-${index+1}')">Válaszoltam, mehetünk tovább!</button>`;
-                            }
-                        }
-                    }
+                } 
+                else if (item.tipus === 'elozetes_osszefoglalo') {
+                    innerHtml = `<div class="elozetes_osszefoglalo ${gateClass}" id="${blockId}"><strong>Előzetes összefoglaló:</strong><br>${parseMarkdown(item.szoveg)}</div>`;
+                } 
+                else if (item.tipus === 'tevhiteloszlatas') {
+                    innerHtml = `<div class="tevhiteloszlatas ${gateClass}" id="${blockId}">${parseMarkdown(item.szoveg)}</div>`;
+                } 
+                else if (item.tipus === 'deep_dive') {
+                    innerHtml = `<details class="deep_dive ${gateClass}" id="${blockId}">
+                                    <summary>${item.cim}</summary>
+                                    <p>${parseMarkdown(item.szoveg)}</p>
+                                 </details>`;
+                } 
+                else {
+                    // adat, feladat, tortenet, extra_reszlet
+                    innerHtml = `<div class="${item.tipus} ${gateClass}" id="${blockId}"><strong>${item.tipus.replace('_', ' ').toUpperCase()}:</strong><br>${parseMarkdown(item.szoveg)}</div>`;
                 }
                 
-                html += `</div>`; // content-block vége
+                html += innerHtml;
             });
 
-            html += `</div>`; // module-container vége
-            
-            // Periférikus modulok (Érdekességek - Elektronmikroszkóp)
-            if (modul.Periferikus_Modulok_Erdekessegek && modul.Periferikus_Modulok_Erdekessegek.Seductive_Detail_1) {
-                const sd = modul.Periferikus_Modulok_Erdekessegek.Seductive_Detail_1;
-                
-                let imgHtml = '';
-                if (sd.Vizualis_Elemek && sd.Vizualis_Elemek.Dekorativ_Kep) {
-                    const img = sd.Vizualis_Elemek.Dekorativ_Kep;
-                    imgHtml = `<div style="text-align:center; margin:10px 0;"><img src="${img.fajlnev}" alt="${img.leiras}" style="max-width:100%; border-radius:5px;"/><p style="font-size:0.8em; color:#7f8c8d; margin-top:5px;">${img.leiras}</p></div>`;
-                }
-                
-                if (currentProfile === 'Halado_Elemzo_Tanulo') {
-                    // Opt-in (lenyíló)
-                    html += `<details class="seductive-detail">
-                                <summary>Mélyebb betekintés: ${sd.Cim}</summary>
-                                ${imgHtml}
-                                <p>${sd.Tartalom}</p>
-                             </details>`;
-                } else if (currentProfile === 'Reflektiv_Olvaso') {
-                    // Beágyazva a szövegbe
-                    html += `<div class="content-block">
-                                <h2>Érdekesség: ${sd.Cim}</h2>
-                                ${imgHtml}
-                                <p>${sd.Tartalom}</p>
-                             </div>`;
-                }
-                // Kezdő és Impulzív esetén elrejtve, ahogy a PDF kéri
+            if (isExpert) {
+                html += `</div>`; // content-wrapper vége
             }
 
             app.innerHTML = html;
+            
+            // Mermaid újrarajzolása
+            try {
+                await mermaid.run();
+            } catch (e) {
+                console.error("Mermaid error", e);
+            }
         }
 
-        // Kezdeti adatbetöltés
         fetch('konyv_data.json')
             .then(response => response.json())
             .then(data => {
                 konyvData = data;
-                renderContent(); // Alapértelmezett "Kezdo" profillal renderel
+                initProfiles();
+                renderContent();
             })
             .catch(error => {
-                document.getElementById('app-container').innerHTML = `<h1 style="color:red;">Hiba történt az adatok betöltésekor: ${error}</h1>`;
+                document.getElementById('app-container').innerHTML = `<h1 style="color:red;">Hiba: ${error}</h1>`;
             });
     </script>
 </body>

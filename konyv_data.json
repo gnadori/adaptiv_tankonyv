@@ -1,117 +1,75 @@
 {
-  "1_Modul": {
-    "Cim": "1. lecke: A sejt szerveződése és sejtalkotói [1]",
-    "Globalis_Szervezok": {
-      "Elore_Elkeszitett_Fogalomterkep": {
-        "tartalom": "Vizuális ábra, amely összeköti a következőket: Sejt -> Prokarióta / Eukarióta -> Sejtalkotók.[1]",
-        "elhelyezes": "Olvasas_elott",
-        "celcsoport_profilok": []
-      },
-      "Generalando_Terkep_Feladat": {
-        "tartalom": "Készíts egy fogalomtérképet a következő kulcsfogalmak felhasználásával: prokarióta, eukarióta, sejtmembrán, sejtváz, sejtmag, endoplazmatikus retikulum, Golgi-készülék, lizoszóma, mitokondrium, színtest, ATP.[1]",
-        "elhelyezes": "Olvasas_utan",
-        "celcsoport_profilok": []
-      }
-    },
-    "Tartalmi_Blokkok": [
-      {
-        "Szoveg_Valtozatok": {
-          "Magas_Kohezioju_Tomb": {
-            "tartalom": "A sejtmembrán egy kettős lipidrétegből épül fel.[1] A membránba ágyazott fehérjék felelősek az anyagok szállításáért és az információk fogadásáért.[1] A külső felszínen lévő szénhidrátláncok alapján az immunrendszerünk ismeri fel a saját sejtjeinket.[1]",
-            "max_mondatszam": 3,
-            "celcsoport_profilok": ["Kezdo", "Impulziv_Olvaso"]
-          },
-          "Kibovitett_Ervelo_Szoveg": {
-            "tartalom": "A sejt egyszerre igényel elhatárolódást a környezetétől és folyamatos kapcsolatot azzal.[1] Ezt a kettős feladatot a sejtmembrán látja el, melynek szerkezete egy kettős lipidrétegből épül fel.[1] A lipidmolekulák feji része vízkedvelő (hidrofil), míg a befelé forduló 'farkincák' vízlepergetőek (hidrofóbok).[1] A membránba ágyazott fehérjék felelősek az anyagok szállításáért (transzport) és a külvilágból érkező információk fogadásáért (receptorok), míg a külső felszínen lévő szénhidrátláncok adják a sejt egyediségét.[1]",
-            "max_mondatszam": 5,
-            "celcsoport_profilok": []
-          }
+    "fejezet": "1. lecke: A sejt szerveződése és sejtalkotói",
+    "gondolatterkep_mermaid": "graph TD\n    A[Sejt] --> B[Prokarióta]\n    A --> C[Eukarióta]\n    C --> D[Sejtmembrán]\n    C --> E[Citoplazma és sejtváz]\n    C --> F[Sejtmag]\n    C --> G[Sejtszervecskék]\n    G --> H[Endoplazmatikus retikulum]\n    G --> I[Golgi-készülék]\n    G --> J[Lizoszóma]\n    G --> K[Mitokondrium]\n    G --> L[Színtestek]",
+    "tanulotipusok": {
+        "Novice / Low Structure Builder": {
+            "jellemzok": "Rövid, jól strukturált mondatok, konkrét példák a mindennapi életből, vastagított kulcsszavak, gyakori kis kérdések.",
+            "tartalom": [
+                {"tipus": "szoveg", "szoveg": "A **sejt** az élőlények legkisebb, már önálló életre képes része. Képzeld el úgy, mint egy apró, nyüzsgő várost! Ebben a városban mindennek megvan a maga helye és feladata."},
+                {"tipus": "szoveg", "szoveg": "A várost egy okos fal veszi körül, ez a **sejtmembrán**. Ez a fal kettős lipidrétegből áll. Eldönti, hogy mi mehet be a városba, és mi jöhet ki onnan. A falban lévő fehérjék a kapuőrök."},
+                {"tipus": "kerdes", "szoveg": "Miből áll a sejtmembrán? Válassz: a) Csak fehérje b) Kettős lipidréteg és fehérjék c) Csak szénhidrát"},
+                {"tipus": "szoveg", "szoveg": "A város belsejét egy zselés anyag tölti ki, ez a **citoplazma**. Ebben futnak az utak, vagyis a **sejtváz**, amely megtartja a sejt alakját."},
+                {"tipus": "szoveg", "szoveg": "A város polgármesteri hivatala a **sejtmag**. Itt őrzik a tervrajzokat, a DNS-t, ami irányítja a sejt működését."},
+                {"tipus": "szoveg", "szoveg": "A sejt gyárai az **endoplazmatikus retikulum (ER)** és a **Golgi-készülék**. Az ER-ben készülnek a fehérjék és a lipidek, a Golgi pedig becsomagolja és elküldi őket a megfelelő helyre, mint egy postahivatal."},
+                {"tipus": "szoveg", "szoveg": "A hulladékfeldolgozók a **lizoszómák**. Ezek lebontják a feleslegessé vált anyagokat."},
+                {"tipus": "szoveg", "szoveg": "Minden városnak kell energia. A sejt erőművei a **mitokondriumok**. Itt termelődik az energia (ATP). A növényeknél vannak még **színtestek** is, amelyek a napfényből csinálnak energiát (fotoszintézis)."},
+                {"tipus": "kerdes", "szoveg": "Hol készül a sejt energiája?"}
+            ]
         },
-        "Vizualis_Elemek": {
-          "Jelolt_Abra": {
-            "fajlnev": "image1.png",
-            "leiras": "A sejtmembrán kettős lipidrétegének vizuálisan támogatott ábrája, a szöveghez igazodó kiemelt nyilakkal és színkódokkal (hidrofil fej, hidrofób farok).",
-            "celcsoport_profilok": []
-          },
-          "Nyers_Adat_Abra": {
-            "fajlnev": "image2.png",
-            "leiras": "Jelöletlen, nagy felbontású elektronmikroszkópos felvétel a sejtmembránról.[1]",
-            "celcsoport_profilok": []
-          }
+        "Expert / High Structure Builder": {
+            "jellemzok": "Hosszú, összetett bekezdések, alacsony kohézió, mély strukturális analógiák, extra opcionális részletek, integrált feladatok.",
+            "tartalom": [
+                {"tipus": "szoveg", "szoveg": "A celluláris organizáció alapelvei az élet legkisebb önálló egységében, a sejtben nyilvánulnak meg. A biológiai rendszerek hierarchiájában a sejt a szövetek és szervek strukturális és funkcionális alapja, melynek vizsgálata során két fő domént, a prokarióta és eukarióta sejtformákat különítjük el. A prokarióták kompartmentáció hiányával jellemezhetők, míg az eukarióták komplex, membránnal határolt organellumokat tartalmaznak."},
+                {"tipus": "szoveg", "szoveg": "A sejtek határoló felülete, a sejtmembrán egy amfifil lipid kettősrétegre épülő fluid mozaik modellként írható le. Ebben az integráns és perifériás fehérjék nem csupán a transzmembrán transzportot, hanem a szignáltranszdukciós folyamatokat is mediálják, míg a felszíni glikokalix a sejtfelismerésben és immunológiai identitásban játszik szerepet."},
+                {"tipus": "szoveg", "szoveg": "A sejt belső terének dinamikáját a citoplazma és a citoszkeleton bonyolult interakciója adja. A mikrotubulusok és mikrofilamentumok hálózata nem egy statikus váz, hanem egy folyamatosan átrendeződő mátrix, mely a sejtosztódás, a vezikuláris transzport és a sejtmozgás primer motorja."},
+                {"tipus": "szoveg", "szoveg": "A kompartmentalizáció csúcsa a kettős membránnal határolt sejtmag és a hozzá csatlakozó endomembrán rendszer (ER és Golgi-apparátus). A sejtmag kromatinállománya az információ tárolója, míg az ER-Golgi tengely a szekréciós útvonal logisztikai központja. A szintetizált makromolekulák poszttranszlációs modifikációja és szortírozása a Golgi-ciszternákban történik."},
+                {"tipus": "szoveg", "szoveg": "Az energetikai autonómiát az endoszimbiózis révén szerzett organellumok, a mitokondriumok és a növények specifikus plasztiszai biztosítják. Ezek az organellumok kettős membránnal és saját cirkuláris genommal rendelkeznek, ami alátámasztja prokarióta eredetüket."},
+                {"tipus": "extra_reszlet", "szoveg": "Az elektronmikroszkópia (TEM és SEM) felfedezése Ernst Ruska és Max Knoll által az 1930-as években elengedhetetlen volt ezen ultrastruktúrák megismeréséhez, mivel a fénymikroszkópia felbontási határa a fény hullámhossza miatt 200 nm körül maximalizálódott."},
+                {"tipus": "feladat", "szoveg": "Készíts egy esszét az endoszimbionta elmélet bizonyítékairól, integrálva a mitokondriumok és színtestek strukturális és genetikai sajátosságait."}
+            ]
         },
-        "Metaforak_es_Peldak": {
-          "Konkret_Metafora": {
-            "tartalom": "A határőrség: A sejtmembrán pontosan úgy dönti el, mit enged be a sejtbe, mint egy szigorú határátkelő.[1]",
-            "celcsoport_profilok": ["Kezdo", "Impulziv_Olvaso"]
-          }
+        "Field-Dependent / Global Learner": {
+            "jellemzok": "Makrótól mikróig haladó felépítés, társadalmi/rendszerszintű példák, előzetes összefoglaló, PEEL struktúra.",
+            "tartalom": [
+                {"tipus": "elozetes_osszefoglalo", "szoveg": "Ebben a fejezetben megismerkedünk az élet alapvető építőkockájával, a sejttel. Látni fogjuk, hogyan épül fel, milyen részekből áll, és hogyan működik együtt ez a rendszer ahhoz, hogy a magasabb rendű élőlények, mint az ember, képesek legyenek élni és funkcionálni."},
+                {"tipus": "szoveg", "szoveg": "Amikor egy épületet nézünk, tudjuk, hogy téglákból épül fel. Ugyanígy az emberi test vagy egy tölgyfa is apró építőkövekből, sejtekből áll. A sejtek az élővilág legkisebb egységei. A természetben a sejtek csoportosulása szöveteket, azok pedig szerveket alkotnak egy nagy globális biológiai rendszerben."},
+                {"tipus": "szoveg", "szoveg": "Pont (P): A sejtnek hatékonyan kell elhatárolódnia a külvilágtól, de közben kapcsolatot is kell tartania vele. Bizonyíték (E): Ezt a feladatot a sejtmembrán látja el, amely lipid kettősrétegből áll. Magyarázat (E): A zsírszerű réteg nem enged át mindent, a benne lévő fehérjék pedig kapuként működnek az anyagok számára. Kapcsolat (L): Ez biztosítja, hogy a sejt belső egyensúlya fennmaradjon, akárcsak egy ország határellenőrzése."},
+                {"tipus": "szoveg", "szoveg": "A sejtek belső felosztása (kompartmentáció) hasonló az emberi társadalom munkamegosztásához. A sejtmag az irányítóközpont (kormányzat), amely a DNS-ben tárolt információk alapján dönt. A gyár a fehérjéket készítő endoplazmatikus retikulum és a Golgi-készülék, amely a szállítást szervezi. A hulladékkezelést a lizoszómák végzik."},
+                {"tipus": "szoveg", "szoveg": "Minden rendszer működéséhez energia kell. A sejt energiaellátását a mitokondriumok biztosítják az oxigén felhasználásával (sejtlégzés), míg a növényeknél a színtestek hasznosítják a napenergiát. Ezen organellumok működése tartja mozgásban a földi élet teljes energiahálózatát."}
+            ]
         },
-        "Beagyazott_Ertekelesek": {
-          "Alacsony_Tetel_Kerdes": {
-            "kerdes": "Melyek a sejtmembrán fő alkotóelemei, és mi a feladatuk? [1]",
-            "tipus": "kotelezo_megallitas",
-            "celcsoport_profilok": ["Kezdo", "Impulziv_Olvaso"],
-            "visszacsatolasi_kor": "Helytelen válasz esetén a rendszer visszairányít a Magas_Kohezioju_Tomb olvasásához."
-          }
+        "Field-Independent / Analytical Learner": {
+            "jellemzok": "Objektív adatok, moduláris elrendezés, mechanikai/strukturális metaforák, osztályozási feladatok.",
+            "tartalom": [
+                {"tipus": "adat", "szoveg": "A sejt az élőlények legkisebb strukturális és funkcionális egysége."},
+                {"tipus": "adat", "szoveg": "Sejttípusok osztályozása:\n1. Prokarióta (sejtmag nélküli)\n2. Eukarióta (valódi sejtmaggal rendelkező)"},
+                {"tipus": "adat", "szoveg": "Komponensek és funkcióik:\n- Sejtmembrán: Lipid kettősréteg (hidrofil fej, hidrofób farok). Fehérjék: transzport, receptor. Szénhidrátok: immunológiai azonosítás.\n- Citoplazma: 80% víztartalom.\n- Sejtváz (citoszkeleton): Mikrofilamentumok és mikrotubulusok, alak fenntartása és sejtosztódás.\n- Sejtmag: Pórusos hártya, DNS (kromatin), sejtmagvacska (riboszóma alegységek szintézise).\n- Endoplazmatikus retikulum (ER): DER (fehérjeszintézis), SER (lipidszintézis).\n- Golgi-készülék: Fehérjék utólagos módosítása, szortírozása.\n- Lizoszómák: Enzimatikus bontás (emésztés).\n- Mitokondrium: Dupla membrán, ATP szintézis sejtlégzéssel.\n- Színtestek: Növényi sejtekben klorofill, fotoszintézis."},
+                {"tipus": "feladat", "szoveg": "Készíts egy mátrixot, amely összehasonlítja a növényi, állati és prokarióta sejtek alkotóelemeit!"},
+                {"tipus": "deep_dive", "cim": "Az elektronmikroszkóp mechanizmusa", "szoveg": "A fénymikroszkóp fizikai korlátja a 200 nm-es felbontás. Ernst Ruska és Max Knoll elektromágneseket és elektronnyalábot (melynek hullámhossza rövidebb a fényénél) használva ezerszeres nagyítást értek el vákuumban. Típusai: TEM (transzmissziós, 2D metszet), SEM (pásztázó, 3D felület)."}
+            ]
+        },
+        "Impulsive / Skimming Reader": {
+            "jellemzok": "Rövid, ütős mondatok. Kognitív gátak tévhitekkel. Kötelező kérdések a továbbhaladáshoz. Nincsenek fun fact-ek.",
+            "tartalom": [
+                {"tipus": "szoveg", "szoveg": "A sejt az élet alapja. Két fajtája van: prokarióta (nincs magja) és eukarióta (van magja). Ennyi."},
+                {"tipus": "tevhiteloszlatas", "szoveg": "Sokan azt hiszik, hogy a sejt csak egy vízzel teli apró hólyag. **Állj meg! Ez hatalmas tévedés.** A sejt egy hihetetlenül precízen megszervezett gépezet, saját 'szervekkel' (sejtalkotókkal)."},
+                {"tipus": "kotelezo_kerdes", "szoveg": "Melyik sejttípusnak van valódi sejtmagja? (Válaszolj, hogy tovább olvashass!)"},
+                {"tipus": "szoveg", "szoveg": "A sejt határait a **sejtmembrán** védi. Zsírokból és fehérjékből áll. Szigorúan ellenőrzi a ki- és beutazást."},
+                {"tipus": "szoveg", "szoveg": "A **sejtmag** a központ. Itt van a DNS."},
+                {"tipus": "szoveg", "szoveg": "Az **ER és a Golgi** a gyártósor és a postázó. A fehérjék és zsírok itt készülnek és kerülnek csomagolásra. A **lizoszóma** pedig a sejt gyomra."},
+                {"tipus": "szoveg", "szoveg": "A **mitokondrium** a sejt erőműve. ATP-t gyárt, ami a sejt üzemanyaga. A növényeknek **színtestük** is van, a fotoszintézishez."},
+                {"tipus": "kotelezo_kerdes", "szoveg": "Nevezd meg a sejt energiatermelő központját!"}
+            ]
+        },
+        "Reflective Reader": {
+            "jellemzok": "Bővített, elgondolkodtató bekezdések, tudománytörténet integrálása, nyílt kérdések, fogalmi változást célzó szövegek.",
+            "tartalom": [
+                {"tipus": "szoveg", "szoveg": "Amikor a sejtről gondolkodunk, érdemes megállni és elmerengeni azon, hogy ez a mikroszkopikus egység miként képes fenntartani az élet olyan komplex formáit, mint egy erdő vagy egy emberi társadalom. A prokarióták és eukarióták elkülönülése nem csupán egy rendszertani kategória, hanem az evolúció egyik legjelentősebb ugrása, ahol a sejt belső terének felosztása (kompartmentáció) lehetővé tette a specializált funkciók térbeli elkülönülését."},
+                {"tipus": "szoveg", "szoveg": "Vegyük példának a sejtmembránt. Nem egyszerűen egy passzív határvonal, hanem egy aktív, kétirányú kommunikációs felület. A lipid kettősréteg és a benne úszó fehérjék olyan intelligens gátat képeznek, amely felismeri a külvilág jeleit és válaszol azokra. Milyen mechanizmusok állhatnak amögött, hogy egy ilyen vékony réteg képes fenntartani az élet és a halál (a belső rend és a külső entrópiás káosz) közötti egyensúlyt?"},
+                {"tipus": "szoveg", "szoveg": "A sejtplazmában lévő organellumok – a sejtmag a DNS-sel, az ER és a Golgi a fehérjeszintézissel és transzporttal – mind szoros együttműködésben állnak. A mitokondriumok és színtestek esete pedig különösen lenyűgöző: az endoszimbiózis elmélete szerint ezek az organellumok egykor szabadon élő baktériumok voltak, amelyeket egy másik sejt bekebelezett. Gondolj bele: a saját sejtjeink energiáját valaha független élőlények biztosítják számunkra egy ősi együttélési paktum eredményeként."},
+                {"tipus": "tortenet", "szoveg": "A sejtek belső finomszerkezetének felfedezése Ernst Ruska és Max Knoll 1930-as évekbeli munkájához, az elektronmikroszkóp kifejlesztéséhez köthető. Ez a technológia, amely egy fizikai korlátot (a fény hullámhosszát) lépett át elektronnyalábok alkalmazásával, teljesen új dimenziót nyitott a biológiai megismerésben, még ha ehhez a mintákat fixálni, és 'holt' állapotban kellett is vizsgálni."},
+                {"tipus": "nyilt_kerdes", "szoveg": "Szerinted etikus-e az élőlények 'gépként' való értelmezése, tudva, hogy az élet ezen molekuláris szintű alkatrészei milyen szorosan és harmonikusan működnek együtt? Mi lenne a biológia fejlődésének iránya az elektronmikroszkóp nélkül?"}
+            ]
         }
-      },
-      {
-        "Blokk_Azonosito": "Blokk_5_Energiatermelok",
-        "Tema": "5. Az energiatermelők: Mitokondrium és színtestek [1]",
-        "Szoveg_Valtozatok": {
-          "Magas_Kohezioju_Tomb": {
-            "tartalom": "A mitokondrium és a színtest különlegesek, mert két membrán határolja őket, és saját DNS-sel rendelkeznek.[1] A mitokondriumban zajlik a sejtlégzés, amiből a sejt számára energia (ATP) keletkezik.[1] A színtestek csak a növényi sejtekben fordulnak elő, és a fotoszintézisért felelősek.[1]",
-            "max_mondatszam": 3,
-            "celcsoport_profilok": ["Kezdo", "Impulziv_Olvaso"]
-          },
-          "Kibovitett_Ervelo_Szoveg": {
-            "tartalom": "Ezek a sejtalkotók különlegesek, mert két membrán határolja őket, és saját DNS-sel rendelkeznek, mivel az endoszimbiózis elmélet szerint valaha önálló baktériumok voltak.[1] A mitokondrium minden eukarióta sejtben (a növényekben is!) megtalálható.[1] Itt zajlik a sejtlégzés során a szőlőcukor lebontása oxigén segítségével, amiből a sejt számára felhasználható energia (ATP) keletkezik.[1] A zöld színtestek csak a növényi sejtekben fordulnak elő, és belső membránrendszerükben található a klorofill, amely megköti a fényenergiát a fotoszintézishez.[1]",
-            "max_mondatszam": 5,
-            "celcsoport_profilok": []
-          }
-        },
-        "Cafolo_Elem_Konceptualis_Valtas": {
-          "Tevhit": "Igaz-e az állítás: A növényi sejtekben nincs mitokondrium, mert ott a színtestek termelnek energiát? [1]",
-          "Korrekcio": "Ez egy gyakori tévhit. A mitokondrium minden eukarióta sejtben, így a növényekben is megtalálható, hiszen ők is sejtlégzést végeznek! [1]",
-          "celcsoport_profilok": ["Kezdo", "Impulziv_Olvaso"]
-        },
-        "Vizualis_Elemek": {
-          "Jelolt_Abra": {
-            "fajlnev": "image3.png",
-            "leiras": "A mitokondrium és a színtest felépítése, külön kiemelve a dupla membránt és az önálló DNS-t.",
-            "celcsoport_profilok": ["Mindenki"]
-          }
-        },
-        "Beagyazott_Ertekelesek": {
-          "Alkalmazas_Kerdes": {
-            "kerdes": "Ha egy sejtnek nagyon sok energiára van szüksége (például egy szívizomsejtnek), melyik sejtalkotóból találnánk benne az átlagosnál sokkal többet? Miért? [1]",
-            "tipus": "kifejto_alkalmazas",
-            "celcsoport_profilok": []
-          }
-        }
-      }
-    ],
-    "Periferikus_Modulok_Erdekessegek": {
-      "Seductive_Detail_1": {
-        "Cim": "A láthatatlan világ felfedezése - Az elektronmikroszkóp [1]",
-        "Tartalom": "Érdekes tény a mai diákok számára, hogy ez a világformáló eszköz eredetileg egyfajta egyetemi diákprojektként indult.[1] Ernst Ruska ugyanis még csak 24 éves PhD-hallgató volt a Berlini Műszaki Egyetemen, amikor tanárával, Max Knoll-lal közösen, szinte házi körülmények között megépítették az első prototípust.[1]",
-        "Vizualis_Elemek": {
-          "Dekorativ_Kep": {
-            "fajlnev": "image4.png",
-            "leiras": "Történelmi fotó Ernst Ruskáról és a korai mikroszkóp prototípusáról."
-          }
-        },
-        "Hozzaferesi_Logika": {
-          "Kezdo_Impulziv_Olvaso": "Teljesen elrejtve, a kognitív túlterhelés és a figyelem elterelődésének megakadályozása érdekében.",
-          "Halado_Elemzo_Tanulo": "A szakasz végén kattintható, opcionális 'Mélyebb betekintés' gombként jelenik meg.",
-          "Reflektiv_Olvaso": "Beépítve a folyó szövegbe mint kiegészítő olvasmány."
-        }
-      }
-    },
-    "Szakasz_Osszefoglalo": {
-      "Biztositott_Osszefoglalo": {
-        "tartalom": "A sejt egy rendkívül szervezett egység, ahol minden funkciónak megvan a saját helyszíne.[1] A sejtmembrán szabályozza a forgalmat, a sejtmag tárolja a tervrajzokat (DNS), a DER és a Golgi gyártja és szállítja a termékeket (fehérjék), a mitokondrium pedig biztosítja a működéshez szükséges energiát (ATP).[1]",
-        "celcsoport_profilok": []
-      }
     }
-  }
 }
