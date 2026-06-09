@@ -300,6 +300,34 @@
 
                 html += `<div class="content-block ${gateClass}" id="${blockId}">`;
                 html += title;
+
+                // Képek / Vizuális elemek
+                if (blokk.Vizualis_Elemek) {
+                    const viz = blokk.Vizualis_Elemek;
+                    let imgToShow = null;
+
+                    // Kezdő, Impulzív, Reflektív -> Jelölt ábra (magyarázós)
+                    if ((currentProfile === 'Kezdo' || currentProfile === 'Impulziv_Olvaso' || currentProfile === 'Reflektiv_Olvaso') && viz.Jelolt_Abra) {
+                        imgToShow = viz.Jelolt_Abra;
+                    }
+                    // Haladó -> Nyers adat / összetett ábra
+                    else if (currentProfile === 'Halado_Elemzo_Tanulo' && viz.Nyers_Adat_Abra) {
+                        imgToShow = viz.Nyers_Adat_Abra;
+                    }
+                    // Fallback
+                    else if (viz.Jelolt_Abra) {
+                        imgToShow = viz.Jelolt_Abra;
+                    } else if (viz.Nyers_Adat_Abra) {
+                        imgToShow = viz.Nyers_Adat_Abra;
+                    }
+
+                    if (imgToShow) {
+                        html += `<div style="text-align:center; margin: 15px 0;">`;
+                        html += `<img src="${imgToShow.fajlnev}" alt="${imgToShow.leiras}" style="max-width:100%; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);" />`;
+                        html += `<p style="font-size:0.85em; color:#7f8c8d; font-style:italic;">${imgToShow.leiras}</p>`;
+                        html += `</div>`;
+                    }
+                }
                 
                 // Szövegváltozat kiválasztása
                 let textContent = '';
@@ -366,16 +394,24 @@
             if (modul.Periferikus_Modulok_Erdekessegek && modul.Periferikus_Modulok_Erdekessegek.Seductive_Detail_1) {
                 const sd = modul.Periferikus_Modulok_Erdekessegek.Seductive_Detail_1;
                 
+                let imgHtml = '';
+                if (sd.Vizualis_Elemek && sd.Vizualis_Elemek.Dekorativ_Kep) {
+                    const img = sd.Vizualis_Elemek.Dekorativ_Kep;
+                    imgHtml = `<div style="text-align:center; margin:10px 0;"><img src="${img.fajlnev}" alt="${img.leiras}" style="max-width:100%; border-radius:5px;"/><p style="font-size:0.8em; color:#7f8c8d; margin-top:5px;">${img.leiras}</p></div>`;
+                }
+                
                 if (currentProfile === 'Halado_Elemzo_Tanulo') {
                     // Opt-in (lenyíló)
                     html += `<details class="seductive-detail">
                                 <summary>Mélyebb betekintés: ${sd.Cim}</summary>
+                                ${imgHtml}
                                 <p>${sd.Tartalom}</p>
                              </details>`;
                 } else if (currentProfile === 'Reflektiv_Olvaso') {
                     // Beágyazva a szövegbe
                     html += `<div class="content-block">
                                 <h2>Érdekesség: ${sd.Cim}</h2>
+                                ${imgHtml}
                                 <p>${sd.Tartalom}</p>
                              </div>`;
                 }
