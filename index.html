@@ -97,6 +97,23 @@
             transition: transform 0.2s, filter 0.3s;
         }
 
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+            transition: transform 0.2s, filter 0.3s;
+        }
+        .image-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .image-container p {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
         .question-box {
             background-color: #fff3e0;
             padding: 15px;
@@ -147,10 +164,10 @@
 
         /* Kapuk / Gated Content (Impulsive) */
         .gated-content {
-            filter: blur(5px);
+            filter: blur(8px);
             user-select: none;
             pointer-events: none;
-            opacity: 0.6;
+            opacity: 0.5;
         }
         .gated-content.unlocked {
             filter: none;
@@ -179,12 +196,12 @@
         body.profile-Novice {
             --container-width: 650px;
             --primary-color: #27ae60;
-            font-size: 1.25em; /* Nagy betűk */
+            font-size: 1.25em;
             line-height: 1.8;
             background-color: #f1f8f3;
         }
         body.profile-Novice .content-block {
-            margin-bottom: 35px; /* Laza margók */
+            margin-bottom: 35px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border-left: 8px solid var(--primary-color);
@@ -198,7 +215,7 @@
 
         /* 2. Expert / High Structure Builder */
         body.profile-Expert {
-            --container-width: 1000px; /* Széles, információsűrű moduláris grid */
+            --container-width: 1000px;
             --primary-color: #8e44ad;
             font-size: 0.95em;
         }
@@ -220,7 +237,6 @@
             background-color: #fdfae6;
         }
         body.profile-Field_Dep .content-block {
-            /* Erősen strukturált hierarchia */
             border: 2px solid var(--primary-color);
             border-left: 10px solid var(--primary-color);
         }
@@ -279,7 +295,7 @@
         }
         body.profile-Impulsive .content-block {
             border-left: none;
-            border-right: 5px solid var(--primary-color); /* Eltérő vizuális kapuk */
+            border-right: 5px solid var(--primary-color);
             border-radius: 0;
         }
         body.profile-Impulsive .tevhiteloszlatas {
@@ -300,7 +316,7 @@
         body.profile-Reflective {
             --container-width: 700px;
             --font-family: 'Georgia', 'Times New Roman', serif;
-            --bg-color: #fdfcf8; /* Papírszerű */
+            --bg-color: #fdfcf8;
             color: #333;
         }
         body.profile-Reflective h1, 
@@ -319,7 +335,7 @@
             padding: 10px 0;
         }
         body.profile-Reflective p {
-            text-indent: 2em; /* Könyvszerű behúzás */
+            text-indent: 2em;
             line-height: 1.9;
         }
         body.profile-Reflective .tortenet {
@@ -340,13 +356,10 @@
 </head>
 <body class="profile-Novice">
 
-    <!-- Profilválasztó sáv -->
     <div class="profile-bar" id="profile-bar">
         <span>Válaszd ki a tanulói profilod:</span>
-        <!-- Buttons will be generated dynamically -->
     </div>
 
-    <!-- Ide töltődik be a dinamikus tartalom -->
     <div id="app-container">
         <h1>Adatok betöltése folyamatban...</h1>
     </div>
@@ -357,7 +370,6 @@
         let currentProfile = null;
         let profileKeys = [];
         
-        // Map profil keys to CSS classes
         const profileClasses = {
             "Novice / Low Structure Builder": "Novice",
             "Expert / High Structure Builder": "Expert",
@@ -376,7 +388,7 @@
                 const btn = document.createElement('button');
                 btn.className = 'profile-btn';
                 if (p === currentProfile) btn.classList.add('active');
-                btn.innerText = p.split(' / ')[0]; // Rövidebb név
+                btn.innerText = p.split(' / ')[0];
                 btn.onclick = () => setProfile(p);
                 bar.appendChild(btn);
             });
@@ -385,7 +397,6 @@
         function setProfile(profile) {
             currentProfile = profile;
             
-            // Aktív gomb frissítése
             const btns = document.querySelectorAll('.profile-btn');
             btns.forEach((btn, index) => {
                 btn.classList.remove('active');
@@ -394,7 +405,6 @@
                 }
             });
 
-            // CSS osztály frissítése
             document.body.className = `profile-${profileClasses[profile]}`;
             renderContent();
         }
@@ -429,7 +439,6 @@
             const isExpert = profileClasses[currentProfile] === 'Expert';
             const isFieldIndep = profileClasses[currentProfile] === 'Field_Indep';
 
-            // Külön wrapper, ha grid kell (Expert)
             if (isExpert) {
                 html += `<div id="content-wrapper">`;
             }
@@ -440,8 +449,13 @@
                 
                 let innerHtml = '';
                 
-                // Field-Independent esetén lenyíló fülként jelenítjük meg a sima szövegeket és adatokat
-                if (isFieldIndep && (item.tipus === 'szoveg' || item.tipus === 'adat')) {
+                if (item.tipus === 'kep') {
+                    innerHtml = `<div class="image-container ${gateClass}" id="${blockId}">
+                                    <img src="${item.fajlnev}" alt="${item.leiras}" />
+                                    <p>${item.leiras}</p>
+                                 </div>`;
+                }
+                else if (isFieldIndep && (item.tipus === 'szoveg' || item.tipus === 'adat')) {
                     innerHtml = `<details class="analytic-section" id="${blockId}">
                                     <summary>Szakasz ${index + 1}. - Mutasd</summary>
                                     <p class="${item.tipus}">${parseMarkdown(item.szoveg)}</p>
@@ -469,7 +483,6 @@
                                  </details>`;
                 } 
                 else {
-                    // adat, feladat, tortenet, extra_reszlet
                     innerHtml = `<div class="${item.tipus} ${gateClass}" id="${blockId}"><strong>${item.tipus.replace('_', ' ').toUpperCase()}:</strong><br>${parseMarkdown(item.szoveg)}</div>`;
                 }
                 
@@ -477,12 +490,11 @@
             });
 
             if (isExpert) {
-                html += `</div>`; // content-wrapper vége
+                html += `</div>`;
             }
 
             app.innerHTML = html;
             
-            // Mermaid újrarajzolása
             try {
                 await mermaid.run();
             } catch (e) {
